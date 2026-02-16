@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIGMA | PRO DESIGN</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-box">
+            <div class="logo"><i class="fa-brands fa-figma"></i> FIGMA<span style="color: #000;">.PRO</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Головна</a></li>
+                    <li><a href="guide.html">Гайд</a></li>
+                    <li><a href="history.html">Історія</a></li>
+                    <li><a href="tech.html">Теорія</a></li>
+                    <li><a href="tips.html">Фішки</a></li>
+                    <li><a href="project.html">Файли</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="card-panel" style="transform: rotate(-1deg); margin-top: 20px;">
+            <div class="grid-2">
+                <div>
+                    <h1>FIGMA:<br><span style="color: #000; background: var(--acid-green); padding: 0 10px;">DESIGN</span><br>SYSTEM</h1>
+                    <p style="font-weight: 500;">
+                        Професійне середовище для розробки інтерфейсів. 
+                        Створюйте вектори, прототипи та дизайн-системи в одному місці.
+                    </p>
+                    <a href="guide.html" class="btn-acid"><i class="fa-solid fa-play"></i> ЯК ПОЧАТИ</a>
+                </div>
+                <img src="assets/img/figma-main.jpg" alt="Figma Interface" style="border: 3px solid #000; box-shadow: 6px 6px 0 var(--hot-pink);">
+            </div>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <h2 style="visibility: hidden; height: 0; margin: 0;">Особливості</h2>
+            <div class="card-grid">
+                <div class="card-panel" style="text-align: center; transform: rotate(2deg);">
+                    <i class="fa-solid fa-cloud icon-medium"></i>
+                    <h3>CLOUD</h3>
+                    <p>Доступ до проектів 24/7 з будь-якого браузера.</p>
+                </div>
+                <div class="card-panel" style="text-align: center; transform: rotate(-2deg); background: var(--acid-green);">
+                    <i class="fa-solid fa-users icon-medium" style="color: #000;"></i>
+                    <h3>TEAM</h3>
+                    <p>Спільна робота над макетами в реальному часі.</p>
+                </div>
+                <div class="card-panel" style="text-align: center; transform: rotate(1deg);">
+                    <i class="fa-solid fa-pen-nib icon-medium"></i>
+                    <h3>VECTOR</h3>
+                    <p>Потужні інструменти для створення векторної графіки.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                Підготувала Ірина Матвійчук
+                <span>Дипломна робота 2026</span>
+            </div>
+            <div class="socials">
+                <a href="https://t.me/username" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://instagram.com/username" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:email@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hidden');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+                header.classList.add('header-hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+                header.classList.remove('header-hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

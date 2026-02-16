@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO Фішки | Figma</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="nav-box">
+            <div class="logo"><i class="fa-brands fa-figma"></i> FIGMA<span style="color: #000;">.PRO</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="guide.html">Гайд</a></li>
+                    <li><a href="history.html">Історія</a></li>
+                    <li><a href="tech.html">Теорія</a></li>
+                    <li><a href="tips.html" class="active">Фішки</a></li>
+                    <li><a href="project.html">Файли</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="card-panel" style="background: var(--acid-green);">
+            <h1 style="color: #000; text-shadow: none;"><i class="fa-solid fa-bolt"></i> Лайфаки для Профі</h1>
+            <p style="color: #000; font-weight: 700;">Інструменти, які економлять 50% робочого часу.</p>
+        </div>
+
+        <div class="card-panel">
+            <h2>1. Auto Layout (Shift + A)</h2>
+            <p>Це функція, яка відрізняє новачків від сеньйорів. Auto Layout дозволяє створювати динамічні кнопки, списки та таблиці. Якщо ви зміните текст у кнопці, вона автоматично розшириться. Якщо поміняєте місцями пункти меню стрілочками клавіатури, відступи залишаться ідеальними.</p>
+            <div class="video-container">
+                <div class="video-ratio">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fnp7jEyq1Gk?si=xQoEw_hAoehX4Wmi" title="YouTube video player" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <p><b>Pro Tip:</b> Використовуйте "Absolute Position" всередині автолейауту (іконка прицілу), щоб розмістити елемент (наприклад, бейдж повідомлення) поверх структури.</p>
+        </div>
+
+        <div class="card-panel">
+            <h2>2. Компоненти та Варіанти</h2>
+            <p>Ніколи не копіюйте кнопки вручну. Створіть Компонент (Ctrl+Alt+K). Тепер, коли ви зміните колір головної кнопки, він зміниться на всіх 50 сторінках вашого проекту. Використовуйте Варіанти (Variants), щоб об'єднати різні стани кнопки (Default, Hover, Disabled) в один логічний елемент.</p>
+            <img src="assets/img/components.jpg" alt="Components System" style="border: 3px solid #000; margin-top: 15px;">
+        </div>
+
+        <div class="card-panel">
+            <h2>3. Гарячі клавіші (Must Know)</h2>
+            <div class="grid-2">
+                <ul style="list-style: none;">
+                    <li><span style="background: #000; color: #fff; padding: 5px 10px; border-radius: 6px;">Ctrl + R</span> — Масове перейменування.</li>
+                    <li><span style="background: #000; color: #fff; padding: 5px 10px; border-radius: 6px;">Shift + 2</span> — Зум на виділений об'єкт.</li>
+                    <li><span style="background: #000; color: #fff; padding: 5px 10px; border-radius: 6px;">Ctrl + Alt + C</span> — Копіювати стиль об'єкта.</li>
+                    <li><span style="background: #000; color: #fff; padding: 5px 10px; border-radius: 6px;">Ctrl + Alt + V</span> — Вставити стиль.</li>
+                </ul>
+                <p>Використання гарячих клавіш прискорює роботу в 3 рази. Спробуйте натиснути <b>Ctrl + /</b>, щоб відкрити швидкий пошук по меню.</p>
+            </div>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            Підготувала Ірина Матвійчук
+            <span>Дипломна робота 2026</span>
+        </div>
+        <div class="socials">
+            <a href="https://telegram.org" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="mailto:gumiduty@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hidden');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+                header.classList.add('header-hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+                header.classList.remove('header-hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

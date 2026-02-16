@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Технології | Deep Dive</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="nav-box">
+            <div class="logo"><i class="fa-brands fa-figma"></i> FIGMA<span style="color: #000;">.PRO</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="guide.html">Гайд</a></li>
+                    <li><a href="history.html">Історія</a></li>
+                    <li><a href="tech.html" class="active">Теорія</a></li>
+                    <li><a href="tips.html">Фішки</a></li>
+                    <li><a href="project.html">Файли</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="card-panel">
+            <h1><i class="fa-solid fa-microchip"></i> Архітектура</h1>
+            <p>Технічний аналіз: WebAssembly, WebGL та алгоритми CRDT.</p>
+        </div>
+
+        <div class="card-panel">
+            <h2>1. WebAssembly (Wasm) та C++</h2>
+            <p>Чому Figma працює в браузері швидше, ніж звичайні сайти? Секрет у тому, що вона написана не на JavaScript. Основний код графічного рушія написаний на <b>C++</b> — мові, яка використовується для створення важких ігор та операційних систем.</p>
+            <p>Завдяки технології <b>WebAssembly</b>, цей C++ код компілюється у двійковий формат, який браузер може виконувати з майже нативною швидкістю процесора. Це дозволяє обробляти мільйони векторних точок без зависань, що було б неможливо при використанні стандартного DOM (Document Object Model).</p>
+        </div>
+
+        <div class="card-panel" style="background: #000; color: #fff;">
+            <h2 style="background: var(--acid-green); color: #000;">2. Векторні мережі (Vector Networks)</h2>
+            <p style="color: #fff;">Figma винайшла нову математичну модель для вектора. У SVG або Adobe Illustrator вектор — це шлях (path), який має початок і кінець. Щоб зробити розгалуження, потрібно створювати новий шар.</p>
+            <p style="color: #fff;">Векторна мережа Figma дозволяє з'єднувати будь-яку кількість ліній в одній точці (вершині). Це нагадує 3D-моделювання. Система автоматично визначає замкнуті регіони, дозволяючи використовувати інструмент заливки (Paint Bucket) для зафарбовування окремих частин складного перетину ліній.</p>
+            <img src="assets/img/vector-networks.jpg" alt="Vector Schema" style="border: 2px solid #fff; margin-top: 20px;">
+        </div>
+
+        <div class="card-panel">
+            <h2>3. Алгоритми Синхронізації (CRDT)</h2>
+            <p>Реалізація мультиплеєра — найскладніше технічне досягнення Figma. Як дозволити двом людям редагувати один текст одночасно без конфліктів? Компанія використовує Conflict-free Replicated Data Types (CRDT).</p>
+            <p>Замість того, щоб пересилати повний файл, клієнт відправляє на сервер потік змін (operations). Наприклад: "Користувач А змінив колір об'єкта ID:554 на червоний". Сервер впорядковує ці зміни та розсилає їх усім іншим учасникам сесії. Це відбувається настільки швидко (20-50 мс), що створюється ілюзія миттєвої взаємодії.</p>
+        </div>
+
+        <div class="card-panel">
+            <h2>4. Граф Сцени (Scene Graph)</h2>
+            <p>Figma використовує власний рендерер на базі WebGL. Це означає, що інтерфейс малюється безпосередньо відеокартою (GPU). Всі об'єкти на екрані організовані в деревоподібну структуру даних — граф сцени. Коли ви змінюєте один елемент (наприклад, майстер-компонент), система ефективно оновлює лише ті частини екрану, які змінилися, не перемальовуючи все полотно заново.</p>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            Підготувала Ірина Матвійчук
+            <span>Дипломна робота 2026</span>
+        </div>
+        <div class="socials">
+            <a href="https://telegram.org" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="mailto:gumiduty@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hidden');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+                header.classList.add('header-hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+                header.classList.remove('header-hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

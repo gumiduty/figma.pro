@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд | Основи роботи</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="nav-box">
+            <div class="logo"><i class="fa-brands fa-figma"></i> FIGMA<span style="color: #000;">.PRO</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="guide.html" class="active">Гайд</a></li>
+                    <li><a href="history.html">Історія</a></li>
+                    <li><a href="tech.html">Теорія</a></li>
+                    <li><a href="tips.html">Фішки</a></li>
+                    <li><a href="project.html">Файли</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="card-panel">
+            <h1><i class="fa-solid fa-compass"></i> Повний Гайд</h1>
+            <p>Детальна інструкція: від встановлення до першого прототипу.</p>
+        </div>
+
+        <div class="card-panel">
+            <h2>1. Робочий простір (Interface)</h2>
+            <p>Інтерфейс Figma розроблений з урахуванням мінімалізму, щоб нічого не відволікало від творчості. Він умовно поділений на три ключові зони, розуміння яких є критичним для ефективної роботи.</p>
+            <ul>
+                <li><b>Ліва панель (Layers & Assets):</b> Це навігаційний центр вашого проекту. Тут відображається деревоподібна структура всіх елементів. Figma підтримує глибоку вкладеність, що дозволяє структурувати макети будь-якої складності. Вкладка "Assets" містить вашу бібліотеку компонентів — кнопок, форм та іконок, які можна багаторазово використовувати.</li>
+                <li><b>Центральна область (Infinite Canvas):</b> Ваш безмежний робочий стіл. Тут немає меж. Ви можете розмістити сотні артбордів, стрілки переходів та коментарі в одному просторі. Навігація здійснюється за допомогою "Hand Tool" (клавіша Space) та масштабування (Ctrl + Scroll).</li>
+                <li><b>Права панель (Inspector):</b> Контекстне меню налаштувань. Його вміст динамічно змінюється залежно від вибраного об'єкта. Тут ви керуєте координатами, розмірами, типографікою, кольорами та експортом.</li>
+            </ul>
+             <div class="video-container">
+                <div class="video-ratio">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-C4L4y613ao?si=Wbm03tMDfFmHRYc8" title="YouTube video player" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-panel">
+            <h2>2. Фрейми: Основа Дизайну</h2>
+            <p>Якщо ви прийшли з Photoshop, забудьте про "Groups". У Figma королем є <b>Frame (клавіша F)</b>. Це не просто група об'єктів, це повноцінний контейнер з властивостями вікна браузера.</p>
+            <p>Фрейми мають власні налаштування розміру, фону (Fill), сітки (Layout Grid) та обрізання контенту (Clip Content). Саме завдяки фреймам працює адаптивність. Ви можете вкладати фрейм кнопки у фрейм картки, картку — у фрейм списку, а список — у фрейм екрану iPhone 15 Pro Max.</p>
+            <div style="background: #eee; padding: 20px; border-radius: 10px; border: 2px solid #000; margin-top: 15px;">
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color: var(--hot-pink);"></i> Важливо знати:</h3>
+                <p>Використовуйте Групи (Ctrl+G) тільки тоді, коли вам треба тимчасово об'єднати логотип або ілюстрацію. Для всього іншого (кнопки, меню, картки) використовуйте Фрейми.</p>
+            </div>
+        </div>
+
+        <div class="card-panel">
+            <h2>3. Векторне редагування (Pen Tool)</h2>
+            <p>Інструмент перо (Pen Tool, клавіша P) у Figma є революційним завдяки технології Vector Networks. На відміну від традиційних редакторів, де контур має бути замкненим або розімкненим послідовним ланцюжком точок, Figma дозволяє створювати складні мережі.</p>
+            <p>Ви можете з'єднати одну точку з п'ятьма іншими лініями. Це значно спрощує процес малювання ізометричних ілюстрацій, іконок та складної геометрії. Заливка (Paint Bucket Tool, клавіша B) працює інтелектуально, дозволяючи зафарбовувати окремі сегменти вашої мережі.</p>
+            <img src="assets/img/vector-networks.jpg" alt="Vector Networks Example" style="border: 3px solid #000; margin-top: 20px;">
+        </div>
+
+        <div class="card-panel" style="border-color: var(--hot-pink);">
+            <h2>4. Прототипування</h2>
+            <p>Figma дозволяє не тільки малювати, але й оживляти інтерфейси. Перейдіть у вкладку "Prototype" на правій панелі. Тепер ви можете з'єднувати фрейми синіми "ниточками".</p>
+            <p>Ви можете налаштувати:</p>
+            <ul>
+                <li><b>Тригери:</b> On Click (по кліку), On Hover (при наведенні), After Delay (автоматично).</li>
+                <li><b>Анімацію:</b> Instant (миттєво) або Smart Animate. Остання функція автоматично розпізнає однакові об'єкти на різних екранах і плавно переміщує їх, створюючи ефект морфінгу.</li>
+            </ul>
+        </div>
+
+    </div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            Підготувала Ірина Матвійчук
+            <span>Дипломна робота 2026</span>
+        </div>
+        <div class="socials">
+            <a href="https://telegram.org" target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="mailto:gumiduty@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hidden');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+                header.classList.add('header-hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+                header.classList.remove('header-hidden');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
